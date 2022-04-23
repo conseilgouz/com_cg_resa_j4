@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+     <fieldset name="section">
+		<field name="congesdeb" type="calendar" default="NOW" label="COM_CGRESA_CONGES_DEB" description=""
+			class="input-small" required="true" filter="user_utc"
+			showtime="false" todaybutton="false" filltable="false" translateformat="true" />	 
+		<field name="congesfin" type="calendar" default="NOW" label="COM_CGRESA_CONGES_FIN" description=""
+			class="input-small" required="true" filter="user_utc"
+			showtime="false" todaybutton="false" filltable="false" translateformat="true" />	 
+	</fieldset>
+</form>

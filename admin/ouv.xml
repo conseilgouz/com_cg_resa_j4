@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+     <fieldset name="section">
+		<field name="lib" type="list" default="0" label="COM_CGRESA_LIB_LABEL" description="COM_CGRESA_LIB_DESC" >
+			<option value="0">COM_CGRESA_LIB_SELECT</option>
+			<option value="1">COM_CGRESA_LIB_1</option>
+			<option value="2">COM_CGRESA_LIB_2</option>
+			<option value="3">COM_CGRESA_LIB_3</option>
+			<option value="4">COM_CGRESA_LIB_4</option>
+		</field>
+		<field name="ouv" type="text" default="12:00" label="COM_CGRESA_OPENING_LABEL" description="COM_CGRESA_OPENING_DESC" size="5">
+		</field>
+		<field name="ferm" type="text" default="13:30" label="COM_CGRESA_CLOSING_LABEL" description="COM_CGRESA_CLOSING_DESC" size="5">
+		</field>
+	</fieldset>
+</form>

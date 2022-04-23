@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="4.0" method="upgrade">
+	<name>COM_CGRESA</name>
+	<creationDate>April 2022</creationDate>
+	<author>ConseilGouz</author>
+	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
+	<authorUrl>www.conseilgouz.com</authorUrl>
+	<copyright>Copyright (C) 2022 ConseilGouz.com. All Rights Reserved</copyright>
+	<license>GNU/GPL Version 2 or later - http://www.gnu.org/licenses/gpl-2.0.html</license>
+	<version>2.2.3</version>
+	<description>COM_CGRESA_XML_DESCRIPTION</description>
+	<namespace path="src">ConseilGouz\Component\CGResa</namespace>
+	<scriptfile>script.php</scriptfile>
+	<changelogurl>https://www.conseilgouz.com/updates/com_cgresa_changelog.xml</changelogurl>
+    <install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql
+			</file>
+		</sql>
+	</install>
+    <uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql
+			</file>
+		</sql>
+	</uninstall>
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates</schemapath>
+		</schemas>
+	</update>
+    <files folder="site">
+		<folder>forms</folder>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+		<folder>layouts</folder>
+		<filename>index.html</filename>
+    </files>
+	<media destination="com_cgresa" folder="media">
+		<folder>js</folder>
+		<folder>images
+		</folder>
+		<folder>css</folder>
+		<filename>index.html</filename>
+	</media>
+	
+	<languages>
+		<language tag="fr-FR">language/fr-FR/com_cgresa.ini</language>
+		<language tag="fr-FR">language/fr-FR/com_cgresa.sys.ini</language>
+		<language tag="en-GB">language/en-GB/com_cgresa.ini</language>
+		<language tag="en-GB">language/en-GB/com_cgresa.sys.ini</language>
+	</languages>
+	
+	<administration>
+		<menu>COM_CGRESA_MENU</menu>
+        <submenu>
+            <menu link="option=com_cgresa&amp;view=config" view="config">COM_CGRESA_CONFIG</menu>
+        </submenu>
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>calendar.xml</filename>
+			<filename>cgresa.xml</filename>
+			<filename>conges.xml</filename>
+			<filename>events.xml</filename>
+			<filename>ouv.xml</filename>
+			<filename>index.html</filename>
+			<folder>admincss</folder>
+			<folder>forms</folder>
+			<folder>services</folder>
+			<folder>sql</folder>
+			<folder>src</folder>
+			<folder>tmpl</folder>
+		</files>
+		
+		<languages folder="admin">
+			<language tag="fr-FR">language/fr-FR/com_cgresa.ini</language>
+			<language tag="fr-FR">language/fr-FR/com_cgresa.sys.ini</language>
+			<language tag="en-GB">language/en-GB/com_cgresa.ini</language>
+			<language tag="en-GB">language/en-GB/com_cgresa.sys.ini</language>
+		</languages>
+
+	</administration>
+	<updateservers>
+	<server type="extension" name="COM CG Resa" priority="1">https://www.conseilgouz.com/updates/com_cg_resa_update.xml</server>
+	</updateservers>
+
+</extension>

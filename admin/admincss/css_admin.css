@@ -1,0 +1,131 @@
+/**
+ * @component     CG Résa
+ * Version			: 2.2.3
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ * @copyright (c) 2022 ConseilGouz. All Rights Reserved.
+ * @author ConseilGouz 
+**/
+.form-horizontal .controls {
+	margin-left: 10px;
+}
+#Exceptions .control-label ,
+#Events .control-label,
+#opening .control-label{width:auto}
+
+#Exceptions .control-group:nth-of-type(2) .subform-repeatable-group .control-group:nth-of-type(1){
+	float:left;width:50%;
+}
+#Exceptions .control-group:nth-of-type(2) .subform-repeatable-group .control-group:nth-of-type(2){
+	float:right;width:50%;
+}
+#Exceptions .control-group:nth-of-type(2) .subform-repeatable-group .control-group:nth-of-type(2) .control-label {
+	width: auto
+}
+#Exceptions .subform-repeatable-group .control-group:nth-of-type(1){
+	float:left;width:40%;
+}
+#Exceptions .subform-repeatable-group .control-group:nth-of-type(2){
+	float:right;width:20%;
+}
+#Exceptions .subform-repeatable-group .control-group:nth-of-type(2) .control-label {
+	width: 3em
+}
+#Exceptions .subform-repeatable-group .control-group:nth-of-type(2) .chzn-container {
+	width: 10em !important
+}
+#Exceptions .subform-repeatable-group .control-group:nth-of-type(3){
+	float:right;width:40%;
+}
+#Exceptions .subform-repeatable-group .control-group:nth-of-type(3) .control-label {
+	width: 5em
+}
+#Events .subform-repeatable-group .control-group:nth-of-type(odd){
+	width:48%;
+}
+#Events .subform-repeatable-group .control-group:nth-of-type(even){
+	clear:both;
+	float:right;
+	width:48%;
+}
+
+#opening .subform-repeatable-group .control-group:nth-of-type(1){
+	width:30%;float:left;
+}
+#opening .subform-repeatable-group .control-group:nth-of-type(2){
+	width:30%;float:left;
+}
+#opening .subform-repeatable-group .control-group:nth-of-type(3){
+	width:30%;float:right;
+}
+
+.alert-success {font-size:120%;
+text-align:center}
+.tab-content .form-vertical, .subform-repeatable-group {
+background: #f0f0f0;
+border:2px solid #ddd;
+margin-top:40px;
+padding:20px;
+}
+
+.info-labels + div {
+background: none repeat scroll 0 0 #EEEEEE;
+color: #000000;
+font-size: 110%;
+font-style: italic;
+font-weight: normal;
+margin: 15px 0 30px;
+padding: 15px 10px 10px 20px;
+}
+#basic .control-group:nth-of-type(1){
+	float:left;width:50%;
+}
+#basic .control-group:nth-of-type(2){
+	float:right;width:50%;
+}
+#basic .control-group:nth-of-type(3){
+	float:none;width:100%;
+}
+
+#mail .control-group:nth-of-type(2){
+	float:left;width:50%;
+}
+#mail .control-group:nth-of-type(3){
+	float:right;width:50%;
+}
+#mail .control-group:nth-of-type(4){
+	clear:both;float:left;width:50%;
+}
+#mail .control-group:nth-of-type(5){ /* replyTo */
+	float:right;width:50%;
+}
+#mail .control-group:nth-of-type(6){
+	clear:both;float:left;width:50%;
+}
+#mail .control-group:nth-of-type(7){
+	float:right;width:50%;
+}
+#mail .control-group:nth-of-type(8){
+	clear:both;
+}
+#mail .control-group:nth-of-type(14){
+	float:left;width:50%;
+}
+#mail .control-group:nth-of-type(15){
+	float:right;width:50%;
+}
+#mail .control-group:nth-of-type(16){
+	clear:both;float:left;width:50%;
+}
+#mail .control-group:nth-of-type(17){
+	float:right;width:50%;
+}
+#mail .control-group:nth-of-type(18){
+	clear:both;
+}
+#mail textarea, #basic textarea {width: 80%}
+#Events textarea {
+    width: 25em;
+    height: 4em;
+}
+
+

@@ -1,0 +1,9 @@
+.cgresaverif .form-group:nth-of-type(4) {text-align:center}
+.cgresaverif .form-group:nth-of-type(7) .input-group {display:inline-block;width:auto;}
+.cgresaverif #jform_amount{width:auto;margin-left:1em}
+.cgresaverif #jform_change {display: inline-block !important;}
+.cgresaverif textarea {width: 80%}
+@media (min-width: 768px) {
+.cgresaverif .form-group:nth-of-type(6) {width:50%;float:left}
+.cgresaverif .form-group:nth-of-type(7) {width:50%;float:right}
+}
