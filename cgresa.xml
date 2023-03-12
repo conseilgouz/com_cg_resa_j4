@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="4.0" method="upgrade">
 	<name>COM_CGRESA</name>
-	<creationDate>April 2022</creationDate>
+	<creationDate>2023/03/12</creationDate>
 	<author>ConseilGouz</author>
 	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
 	<authorUrl>www.conseilgouz.com</authorUrl>
-	<copyright>Copyright (C) 2022 ConseilGouz.com. All Rights Reserved</copyright>
+	<copyright>Copyright (C) 2023 ConseilGouz.com. All Rights Reserved</copyright>
 	<license>GNU/GPL Version 2 or later - http://www.gnu.org/licenses/gpl-2.0.html</license>
-	<version>2.2.3</version>
+	<version>2.2.4</version>
 	<description>COM_CGRESA_XML_DESCRIPTION</description>
 	<namespace path="src">ConseilGouz\Component\CGResa</namespace>
 	<scriptfile>script.php</scriptfile>
-	<changelogurl>https://www.conseilgouz.com/updates/com_cgresa_changelog.xml</changelogurl>
+	<changelogurl>https://raw.githubusercontent.com/conseilgouz/com_cg_resa_j4/master/com_cgresa_changelog.xml</changelogurl>
     <install>
 		<sql>
 			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql
@@ -82,7 +82,7 @@
 
 	</administration>
 	<updateservers>
-	<server type="extension" name="COM CG Resa" priority="1">https://www.conseilgouz.com/updates/com_cg_resa_update.xml</server>
+	<server type="extension" name="COM CG Resa" priority="1">https://raw.githubusercontent.com/conseilgouz/updates_github/master/com_cg_resa_update.xml</server>
 	</updateservers>
 
 </extension>

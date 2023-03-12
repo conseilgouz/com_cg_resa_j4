@@ -2,6 +2,18 @@
 	<changelog>
 		<element>com_cgresa</element>
 		<type>component</type>
+		<version>2.2.4</version>
+        <note>
+            <item>Update : 12/03/2023</item>
+        </note>
+        <addition>
+            <item>Implement Inline Help</item>
+			<item>Updates/changelog on github</item>
+        </addition>
+	</changelog>
+	<changelog>
+		<element>com_cgresa</element>
+		<type>component</type>
 		<version>2.2.3</version>
         <note>
             <item>Update : 11/04/2022</item>

@@ -1,9 +1,9 @@
 <?php
 /**
  * @component     CG Résa - Version Joomla 4.0.0
- * Version			: 2.2.3
+ * Version			: 2.2.4
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2022 ConseilGouz. All Rights Reserved.
+ * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
 namespace ConseilGouz\Component\CGResa\Administrator\View\Config;
@@ -54,12 +54,14 @@ class HtmlView extends BaseHtmlView {
 
         ToolBarHelper::title(Text::_('CG_RESA'));
 
+        ToolbarHelper::apply('config.apply');
+
+		ToolbarHelper::inlinehelp();			
         if ($canDo->get('core.admin'))
         {
             ToolbarHelper::preferences('com_cgresa');
         }
 
-        ToolbarHelper::apply('config.apply');
 
     }
 }
