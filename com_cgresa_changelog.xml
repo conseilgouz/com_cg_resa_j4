@@ -2,6 +2,17 @@
 	<changelog>
 		<element>com_cgresa</element>
 		<type>component</type>
+		<version>2.2.5</version>
+        <note>
+            <item>Update : 12/03/2023</item>
+        </note>
+        <fix>
+            <item>wrong version number displayed</item>
+        </fix>
+	</changelog>
+	<changelog>
+		<element>com_cgresa</element>
+		<type>component</type>
 		<version>2.2.4</version>
         <note>
             <item>Update : 12/03/2023</item>
