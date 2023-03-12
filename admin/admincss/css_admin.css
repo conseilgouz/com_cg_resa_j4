@@ -1,13 +1,20 @@
 /**
  * @component     CG Résa
- * Version			: 2.2.3
+ * Version			: 2.2.5
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2022 ConseilGouz. All Rights Reserved.
+ * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
 .form-horizontal .controls {
 	margin-left: 10px;
 }
+
+.subform-repeatable-group {display:flex}
+
+.control-group .control-label {
+    margin-left: 1em;
+}
+#Events .subform-repeatable-group {display:inline-block}
 #Exceptions .control-label ,
 #Events .control-label,
 #opening .control-label{width:auto}
@@ -39,22 +46,23 @@
 #Exceptions .subform-repeatable-group .control-group:nth-of-type(3) .control-label {
 	width: 5em
 }
-#Events .subform-repeatable-group .control-group:nth-of-type(odd){
-	width:48%;
-}
 #Events .subform-repeatable-group .control-group:nth-of-type(even){
 	clear:both;
+	float:left;
+	width:48%;
+}
+#Events .subform-repeatable-group .control-group:nth-of-type(odd){
 	float:right;
 	width:48%;
 }
 
-#opening .subform-repeatable-group .control-group:nth-of-type(1){
-	width:30%;float:left;
-}
 #opening .subform-repeatable-group .control-group:nth-of-type(2){
 	width:30%;float:left;
 }
 #opening .subform-repeatable-group .control-group:nth-of-type(3){
+	width:30%;float:left;
+}
+#opening .subform-repeatable-group .control-group:nth-of-type(4){
 	width:30%;float:right;
 }
 
