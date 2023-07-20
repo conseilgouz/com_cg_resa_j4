@@ -1,9 +1,9 @@
 <?php
 /**
-* CG Resa Component  - Joomla 4.0.0 Component 
-* Version			: 2.2.3
+* CG Resa Component  - Joomla 4.x/5.x Component 
+* Version			: 2.3.0
 * Package			: CG Resa
-* copyright 		: Copyright (C) 2022 ConseilGouz. All rights reserved.
+* copyright 		: Copyright (C) 2023 ConseilGouz. All rights reserved.
 * license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 */
 // No direct access to this file
@@ -232,7 +232,7 @@ class com_cgresaInstallerScript
 	
 	private function uninstallInstaller()
 	{
-		if ( ! JFolder::exists(JPATH_PLUGINS . '/system/' . $this->installerName)) {
+		if ( ! Folder::exists(JPATH_PLUGINS . '/system/' . $this->installerName)) {
 			return;
 		}
 		$this->delete([

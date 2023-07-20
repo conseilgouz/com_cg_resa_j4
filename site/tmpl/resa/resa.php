@@ -1,9 +1,9 @@
 <?php
 /**
- * @component     CG Résa
- * Version			: 2.2.3
+ * @component     CG Résa for Joomla 4.x/5.x
+ * Version			: 2.3.0
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2022 ConseilGouz. All Rights Reserved.
+ * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
 // No direct access
@@ -14,17 +14,17 @@ use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use ConseilGouz\Component\CGResa\Site\Controller\ResaController;
 use Joomla\CMS\Router\Route;
-
+use Joomla\CMS\Uri\Uri;
 HTMLHelper::_('behavior.formvalidator');
 
-$compath = ''.JURI::base(true).'/media/com_cgresa';
+$compath = ''.URI::base(true).'/media/com_cgresa';
 $params = ResaController::getParams();
 $document = Factory::getDocument();
 $document->addScript($compath."/js/cgresa.js");
 $document->addStyleDeclaration($params['css']); 
 
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
-$wa = $this->document->getWebAssetManager();
+$wa = $document->getWebAssetManager();
 $wa->useScript('keepalive')
 	->useScript('form.validate')
 ;

@@ -1,9 +1,9 @@
 <?php
 /**
- * @component     CG Résa - Joomla 4.0.0
- * Version			: 2.2.3
+ * @component     CG Résa - Joomla 4.x/5.x
+ * Version			: 2.3.0
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2022 ConseilGouz. All Rights Reserved.
+ * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
 namespace ConseilGouz\Component\CGResa\Site\View\Resa;
@@ -13,6 +13,7 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\View\GenericDataException;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\CMS\Uri\Uri;
+use Joomla\CMS\Document\Document;
 class HtmlView extends BaseHtmlView {
 
 	protected $form = null;
@@ -25,9 +26,9 @@ class HtmlView extends BaseHtmlView {
 		$this->script = $this->get('Script'); 
 		// Call the parent display to display the layout file
 		parent::display($tpl);
-
+		$document = Factory::getDocument();
 		// Set properties of the html document
-		$this->setDocument();
+		$this->setDocument($document);
 	}
 
 	/**
@@ -35,9 +36,9 @@ class HtmlView extends BaseHtmlView {
 	 *
 	 * @return void
 	 */
-	protected function setDocument() 
+	public function setDocument(Document $document): void
 	{
-		$document = Factory::getDocument();
+		// $document = Factory::getDocument();
 		$document->addStyleSheet(URI::base(true) . "/media/com_cgresa"
 		                                  . "/css/cg_resa.css");
 		$document->addStyleSheet(URI::base(true) . "/media/com_cgresa"

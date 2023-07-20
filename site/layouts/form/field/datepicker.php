@@ -1,9 +1,9 @@
  <?php
 /**
- * @component     CG Résa
- * Version			: 2.2.3
+ * @component     CG Résa for Joomla 4.x/5.x
+ * Version			: 2.3.0
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2022 ConseilGouz. All Rights Reserved.
+ * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
 defined('JPATH_BASE') or die;
@@ -11,6 +11,8 @@ use Joomla\CMS\Factory;
 use Joomla\Registry\Registry;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Uri\Uri;
+
 use ConseilGouz\Component\CGResa\Site\Controller\ResaController;
 
 $params = ResaController::getParams();
@@ -23,7 +25,7 @@ $app = Factory::getApplication(); // 1.0.11: receive date as parameter
 $input = $app->input; 
 $date  = $input->get('date');
 
-$path = ''.JURI::base(true). '/media/com_cgresa/';
+$path = ''.URI::base(true). '/media/com_cgresa/';
 $document->addStyleSheet($path.'css/jquery.ui.datepicker.min.css');
 $document->addScript($path.'js/jquery.ui.datepicker.min.js');
 
