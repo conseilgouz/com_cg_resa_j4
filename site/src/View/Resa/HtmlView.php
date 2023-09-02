@@ -42,7 +42,7 @@ class HtmlView extends BaseHtmlView {
 		                                  . "/css/cg_resa.css");
 		$document->addStyleSheet(URI::base(true) . "/media/com_cgresa"
 		                                  . "/css/up.css");
-		$document->addScript(URI::base(true) . $this->script);
+		if (isset($this->script))$document->addScript(URI::base(true) . $this->script);
 		$document->addScript(URI::base(true) . "/media/com_cgresa"
 		                                  . "/js/jquery.ui.core.min.js");
 		$document->addScript(URI::base(true) . "/media/com_cgresa"
