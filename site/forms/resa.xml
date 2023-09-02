@@ -26,9 +26,9 @@
             >
         </field>
         <field
-                name="size" type="number" class="validate-size"
+                name="size" type="number" class="validate-size" 
                 label="COM_CGRESA_SIZE" hint="COM_CGRESA_SIZE_HOLD" 
-                default=""  required="true" autocomplete="number"
+                default="8"  required="true" autocomplete="number" validate="size"
             >
         </field>
         <field

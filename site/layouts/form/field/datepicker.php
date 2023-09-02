@@ -12,7 +12,6 @@ use Joomla\Registry\Registry;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Uri\Uri;
-
 use ConseilGouz\Component\CGResa\Site\Controller\ResaController;
 
 $params = ResaController::getParams();

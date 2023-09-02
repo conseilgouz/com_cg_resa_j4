@@ -1,6 +1,6 @@
 /**
  * @component     CG Résa
- * Version			: 2.2.6
+ * Version			: 2.3.0
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
@@ -91,9 +91,14 @@ padding: 15px 10px 10px 20px;
 	float:right;width:50%;
 }
 #basic .control-group:nth-of-type(3){
-	float:none;width:100%;
+	clear:both;width:50%;float:left;
 }
-
+#basic .control-group:nth-of-type(4){
+	width:50%;float:right;
+}
+#basic .control-group:nth-of-type(5){
+	clear:both;
+}
 #mail .control-group:nth-of-type(2){
 	float:left;width:50%;
 }

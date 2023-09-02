@@ -23,6 +23,11 @@
 			label="JFIELD_LANGUAGE_LABEL" description="JFIELD_LANGUAGE_DESC"	>
 			<option value="*">JALL</option>
 		</field>
+		<field name="minsize" type="number"
+			label="COM_CGRESA_MINSIZE" 
+			description ="COM_CGRESA_MINSIZE_DESC" 
+			default="0"
+			required="true"  />
 		<field name="legend" type="textarea" label="COM_CGRESA_LEGEND" description="COM_CGRESA_LEGEND_DESC" cols="200" rows="4" filter="raw" 
 			default="&lt;h1&gt;CG Réservation&lt;/h1&gt;"
 		/>	

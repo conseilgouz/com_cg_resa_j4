@@ -1,7 +1,7 @@
 <?php
 /**
  * @component     CG Résa for Joomla 4.x/5.x
- * Version			: 2.3.0
+ * Version			: 2.3.1
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
@@ -15,6 +15,7 @@ use Joomla\CMS\Language\Text;
 use ConseilGouz\Component\CGResa\Site\Controller\ResaController;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
+
 HTMLHelper::_('behavior.formvalidator');
 
 $compath = ''.URI::base(true).'/media/com_cgresa';

@@ -1,7 +1,7 @@
 <?php
 /**
 * CG Resa Component  - Joomla 4.x/5.x Component 
-* Version			: 2.3.0
+* Version			: 2.3.1
 * Package			: CG Resa
 * copyright 		: Copyright (C) 2023 ConseilGouz. All rights reserved.
 * license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
@@ -10,9 +10,9 @@
 defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
-use Joomla\CMS\Filesystem\Folder;
+use Joomla\Filesystem\Folder;
 use Joomla\CMS\Version;
-use Joomla\CMS\Filesystem\File;
+use Joomla\Filesystem\File;
 
 class com_cgresaInstallerScript
 {
@@ -232,7 +232,7 @@ class com_cgresaInstallerScript
 	
 	private function uninstallInstaller()
 	{
-		if ( ! Folder::exists(JPATH_PLUGINS . '/system/' . $this->installerName)) {
+		if ( ! is_dir(JPATH_PLUGINS . '/system/' . $this->installerName)) {
 			return;
 		}
 		$this->delete([
