@@ -1,15 +1,18 @@
 <?php
 /**
  * @component     CG Résa
- * Version			: 2.0.3
+ * Version			: 2.3.1
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2022 ConseilGouz. All Rights Reserved.
+ * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
+use \Joomla\CMS\MVC\Model\AdminModel;
+use \Joomla\CMS\Table\Table;
+use Joomla\CMS\Factory;
 
-class CGResaModelForm extends JModelAdmin
+class CGResaModelForm extends ModelAdmin
 {
 
 	/**
@@ -25,7 +28,7 @@ class CGResaModelForm extends JModelAdmin
 	 */
 	public function getTable($type = 'CGResa', $prefix = 'CGResaTable', $config = array())
 	{
-		return JTable::getInstance($type, $prefix, $config);
+		return Table::getInstance($type, $prefix, $config);
 	}
 
     /**
@@ -72,7 +75,7 @@ class CGResaModelForm extends JModelAdmin
 	protected function loadFormData()
 	{
 		// Check the session for previously entered form data.
-		$data = JFactory::getApplication()->getUserState(
+		$data = Factory::getApplication()->getUserState(
 			'com_cg_resa.resa.cg_resa.data',
 			array()
 		);
