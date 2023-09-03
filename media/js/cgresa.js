@@ -1,8 +1,8 @@
 /**
  * @component     CG Resa
- * Version			: 2.2.3
+ * Version			: 2.3.1
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2022 ConseilGouz. All Rights Reserved.
+ * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
 jQuery(document).ready(function($) {
@@ -199,6 +199,9 @@ function check_hours(eventdate) {
 				$el = arr[ix];
 				$el = $el.split(',');
 				$next = arr[ix + 1];
+				if (typeof $next === 'undefined') { // no std time defined for selected day
+					$next = "24:00,00:00";
+				}
 				$next = $next.split(',');
 				$start = $el[0];
 				$end = $el[1];
@@ -216,7 +219,7 @@ function check_hours(eventdate) {
 		}
 		openning= arr;
 	}
-	// 1.1.2 : Exceptions : fermeture matin/midi ou soir (toute la journee dans datepicker)
+	// Exceptions : fermeture matin/midi ou soir (toute la journee dans datepicker)
 	if ($except.indexOf(eventdate) > -1 ) { // exception
 		arr = [];
 		lib = [];
