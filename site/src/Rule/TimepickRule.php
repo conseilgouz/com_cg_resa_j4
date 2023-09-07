@@ -1,9 +1,9 @@
 <?php
 /**
  * @component     CG Résa
- * Version			: 2.2.3
+ * Version			: 2.3.3
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2022 ConseilGouz. All Rights Reserved.
+ * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
 namespace ConseilGouz\Component\CGResa\Site\Rule;
@@ -49,9 +49,11 @@ class TimepickRule extends FormRule
 		$ok = false;
 		
 		$events = $params['events'];
-		foreach ($events as $un) {
-			if ($un['event'] == $date) { // special events
-				if ((strtotime($heure) >= strtotime($un['ouv'])) && (strtotime($heure) <= strtotime($un['ferm']))) $ok = true;
+		if ($events) { 
+			foreach ($events as $un) {
+				if ($un['event'] == $date) { // special events
+					if ((strtotime($heure) >= strtotime($un['ouv'])) && (strtotime($heure) <= strtotime($un['ferm']))) $ok = true;
+				}
 			}
 		}
         foreach ($p as $un) { // controle des heures autorisées pour cette journée

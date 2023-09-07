@@ -1,12 +1,11 @@
 <?php
 /**
-* CG Isotope Component  - Joomla 4.0.0 Component 
-* Version			: 2.2.3
-* Package			: CG ISotope
-* copyright 		: Copyright (C) 2022 ConseilGouz. All rights reserved.
-* license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
-* From              : isotope.metafizzy.co
-*/
+ * @component     CG Résa
+ * Version			: 2.3.3
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
+ * @author ConseilGouz 
+**/
 namespace ConseilGouz\Component\CGResa\Site\Controller;
 \defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
@@ -124,7 +123,7 @@ class ResaController extends BaseController {
 		if ($mailcc) $mail->addCc($mailcc);
 		if ($params['mailbcc'])  $mail->addBcc($params['mailbcc']);
 		
-        $mail->setSubject( utf8_encode($subject ));
+        $mail->setSubject( mb_convert_encoding($subject, 'UTF-8', 'ISO-8859-1'));
         $mail->setBody(  $body );
         $mail->isHtml(true);
         $sent = $mail->Send();
@@ -139,7 +138,7 @@ class ResaController extends BaseController {
             $mail->addCc($params['confirmcc']);
             $mail->addBcc($params['confirmbcc']);
             $mail->setSender( array( $params['confirmfrom'], $params['confirmfromlib'] ) );
-            $mail->setSubject( utf8_encode($subject ));
+            $mail->setSubject( mb_convert_encoding($subject, 'UTF-8', 'ISO-8859-1'));
             $mail->setBody(  $body );
             $mail->isHtml(true);
             $sent = $mail->Send();
