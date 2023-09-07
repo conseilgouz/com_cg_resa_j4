@@ -84,19 +84,19 @@ font-weight: normal;
 margin: 15px 0 30px;
 padding: 15px 10px 10px 20px;
 }
-#basic .control-group:nth-of-type(1){
+#basic .control-group:nth-of-type(2){
 	float:left;width:50%;
 }
-#basic .control-group:nth-of-type(2){
+#basic .control-group:nth-of-type(3){
 	float:right;width:50%;
 }
-#basic .control-group:nth-of-type(3){
+#basic .control-group:nth-of-type(4){
 	clear:both;width:50%;float:left;
 }
-#basic .control-group:nth-of-type(4){
+#basic .control-group:nth-of-type(5){
 	width:50%;float:right;
 }
-#basic .control-group:nth-of-type(5){
+#basic .control-group:nth-of-type(6){
 	clear:both;
 }
 #mail .control-group:nth-of-type(2){
