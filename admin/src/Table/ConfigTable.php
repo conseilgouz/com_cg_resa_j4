@@ -1,9 +1,9 @@
 <?php
 /**
  * @component     CG Résa - Version Joomla 4.0.0
- * Version			: 2.2.3
+ * Version			: 2.3.2
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2022 ConseilGouz. All Rights Reserved.
+ * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
 namespace ConseilGouz\Component\CGResa\Administrator\Table;
@@ -32,8 +32,6 @@ class ConfigTable extends Table implements VersionableTableInterface
 	 */
 	protected $_supportNullValue = true;
 
-	protected $params;
-	
     /**
      * Constructor
      *

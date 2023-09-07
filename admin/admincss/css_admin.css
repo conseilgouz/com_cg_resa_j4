@@ -1,6 +1,6 @@
 /**
  * @component     CG Résa
- * Version			: 2.3.0
+ * Version			: 2.3.2
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
@@ -14,7 +14,7 @@
 .control-group .control-label {
     margin-left: 1em;
 }
-#Events .subform-repeatable-group {display:inline-block}
+#Events .subform-repeatable-group {display:inline-block; width:100%}
 #Exceptions .control-label ,
 #Events .control-label,
 #opening .control-label{width:auto}
@@ -23,7 +23,7 @@
 	float:left;width:50%;
 }
 #Exceptions .control-group:nth-of-type(2) .subform-repeatable-group .control-group:nth-of-type(2){
-	float:right;width:50%;
+	float:left;width:30%;
 }
 #Exceptions .control-group:nth-of-type(2) .subform-repeatable-group .control-group:nth-of-type(2) .control-label {
 	width: auto
@@ -35,13 +35,13 @@
 	float:right;width:20%;
 }
 #Exceptions .subform-repeatable-group .control-group:nth-of-type(2) .control-label {
-	width: 3em
+	width: 15em
 }
 #Exceptions .subform-repeatable-group .control-group:nth-of-type(2) .chzn-container {
 	width: 10em !important
 }
 #Exceptions .subform-repeatable-group .control-group:nth-of-type(3){
-	float:right;width:40%;
+	float:right;width:30%;
 }
 #Exceptions .subform-repeatable-group .control-group:nth-of-type(3) .control-label {
 	width: 5em

@@ -2,6 +2,21 @@
 	<changelog>
 		<element>com_cgresa</element>
 		<type>component</type>
+		<version>2.3.2</version>
+        <note>
+            <item>Update : 07/09/2023</item>
+        </note>
+        <fix>
+            <item>Table : remove protected params; line</item>
+			<item>Fix CSS Admin</item>
+        </fix>
+		<addition>
+			<item>Automatic version number from xml file</item>
+		</addition>
+	</changelog>
+	<changelog>
+		<element>com_cgresa</element>
+		<type>component</type>
 		<version>2.3.1</version>
         <note>
             <item>Update : 02/09/2023</item>

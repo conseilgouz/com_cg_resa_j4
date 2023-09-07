@@ -3,7 +3,9 @@
 	<config>         
 		<inlinehelp button="show"/>     
 	</config>
-    <fieldset name="basic" label="CGRESA_GLOBAL_DATA" description="GSD_GLOBAL_DATA_DESC">
+    <fieldset name="basic" label="CGRESA_GLOBAL_DATA" description="GSD_GLOBAL_DATA_DESC"
+		addfieldprefix="ConseilGouz\Component\CGResa\Administrator\Field">
+		<field name="version" type="version"  margintop="-3em" extension="com_cgresa"/>
 		<field name="id" type="hidden" default="0"
 			readonly="true" class="readonly"
 			label="JGLOBAL_FIELD_ID_LABEL" 	description ="JGLOBAL_FIELD_ID_DESC" />

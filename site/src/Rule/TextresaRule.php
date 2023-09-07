@@ -1,9 +1,9 @@
 <?php
 /**
  * @component     CG Résa
- * Version			: 2.2.3
+ * Version			: 2.3.2
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2022 ConseilGouz. All Rights Reserved.
+ * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
 namespace ConseilGouz\Component\CGResa\Site\Rule;
@@ -31,9 +31,10 @@ class TextresaRule extends FormRule
 	{
         $text = $input->get('msg'); // get message
 
-		$textclean = strip_tags($text, '<br>');
-		
-		if ($text != $textclean) {return false;} 
+		if ($text) {
+			$textclean = strip_tags($text, '<br>');
+			if ($text != $textclean) {return false;} 
+		}
 		return true;
 	}
 
