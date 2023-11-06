@@ -1,8 +1,8 @@
 <?php
 /**
  * @component     CG Résa
- * Version			: 2.3.3
- * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ * Version			: 2.3.4
+ * @license https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
@@ -134,9 +134,9 @@ class ResaController extends BaseController {
             }
             $subject    = $params['confirmsubject'];  
             $mail = Factory::getMailer();
-            $mail->addRecipient( $data[email], $data[name]);
-            $mail->addCc($params['confirmcc']);
-            $mail->addBcc($params['confirmbcc']);
+            $mail->addRecipient( $data['email'], $data['name']);
+            if ($params['confirmcc']) $mail->addCc($params['confirmcc']);
+            if ($params['confirmbcc']) $mail->addBcc($params['confirmbcc']);
             $mail->setSender( array( $params['confirmfrom'], $params['confirmfromlib'] ) );
             $mail->setSubject( mb_convert_encoding($subject, 'UTF-8', 'ISO-8859-1'));
             $mail->setBody(  $body );
