@@ -9,6 +9,7 @@
         <fix>
             <item>Suppress PHP warnings</item>
             <item>Missing phone/size check in form validator</item>
+			<item>Delete unnecessary files</item>
         </fix>
 	</changelog>
 	<changelog>
