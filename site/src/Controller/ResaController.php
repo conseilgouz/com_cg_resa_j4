@@ -58,7 +58,7 @@ class ResaController extends BaseController {
 	$data['msg'] = $input->getString('msg','','string');
 	$data['task'] = $input->getString('task','','string');
 	// set up context for saving form data
-	$context = "$this->option.resa.$this->context";
+	//$context = "$this->option.resa.$this->context";
     // Validate the posted data.
 	$form = $model->getForm($data, false);
 	if (!$form) {
@@ -87,7 +87,7 @@ class ResaController extends BaseController {
 			}
 		}
     // Save the form data in the session.
-        $app->setUserState($context . '.data', $data);
+       //  $app->setUserState($context . '.data', $data);
     // Redirect back to the same screen.
         $this->setRedirect($currentUri);
         return false;
@@ -137,7 +137,7 @@ class ResaController extends BaseController {
             $mail->addRecipient( $data['email'], $data['name']);
             if ($params['confirmcc']) $mail->addCc($params['confirmcc']);
             if ($params['confirmbcc']) $mail->addBcc($params['confirmbcc']);
-            $mail->setSender( array( $params['confirmfrom'], $params['confirmfromlib'] ) );
+            $mail->setSender( array( $params['confirmfrom'], $params['confimfromlib'] ) );
             $mail->setSubject( mb_convert_encoding($subject, 'UTF-8', 'ISO-8859-1'));
             $mail->setBody(  $body );
             $mail->isHtml(true);

@@ -1,8 +1,8 @@
 <?php
 /**
  * @component     CG Résa
- * Version			: 2.3.0
- * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ * Version			: 2.3.5
+ * @license https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
@@ -40,9 +40,11 @@ class SizeRule extends FormRule
 		$events = $params['events'];
 		$special = false;
 		$debug = "";
-		foreach ($events as $un) {
-			if ($un['event'] == $date) { // special events
-				if ((strtotime($heure) >= strtotime($un['ouv'])) && (strtotime($heure) <= strtotime($un['ferm']))) $special = true;
+		if ($events) {
+			foreach ($events as $un) {
+				if ($un['event'] == $date) { // special events
+					if ((strtotime($heure) >= strtotime($un['ouv'])) && (strtotime($heure) <= strtotime($un['ferm']))) $special = true;
+				}
 			}
 		}
 		if ($special) return true;

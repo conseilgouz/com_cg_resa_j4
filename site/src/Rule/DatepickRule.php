@@ -1,9 +1,9 @@
 <?php
 /**
  * @component     CG Résa
- * Version			: 2.2.3
- * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2022 ConseilGouz. All Rights Reserved.
+ * Version			: 2.3.5
+ * @license https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+ * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
 namespace ConseilGouz\Component\CGResa\Site\Rule;
@@ -40,17 +40,21 @@ class DatepickRule extends FormRule
 			$element['message'] = Text::_('COM_CGRESA_TOOLATE_DATE')." : ".$value;
 			return false;
 		}
-		foreach ($conges as $except) {
-			if ((strtotime($value.' 12:00:00' ) >= strtotime($except['congesdeb'].' 00:00:00' )) &&
-				(strtotime($value.' 12:00:00' ) <= strtotime($except['congesfin'].' 23:59:59' )) ) {// congès
-				$element['message'] = Text::_('COM_CGRESA_CLOSED_DATE')." : ".$value;
-				return false;
+		if ($conges) {
+			foreach ($conges as $except) {
+				if ((strtotime($value.' 12:00:00' ) >= strtotime($except['congesdeb'].' 00:00:00' )) &&
+					(strtotime($value.' 12:00:00' ) <= strtotime($except['congesfin'].' 23:59:59' )) ) {// congès
+					$element['message'] = Text::_('COM_CGRESA_CLOSED_DATE')." : ".$value;
+					return false;
+				}
 			}
 		}
-        foreach ($excepts as $except) {
-            if (strtotime($value.' 23:59:59' ) == strtotime($except['exception'].' 23:59:59' )) {// fermeture exceptionnelle
-				$element['message'] = Text::_('COM_CGRESA_CLOSED_DATE')." : ".$value;
-				return false;
+		if ($excepts) {
+			foreach ($excepts as $except) {
+				if (strtotime($value.' 23:59:59' ) == strtotime($except['exception'].' 23:59:59' )) {// fermeture exceptionnelle
+					$element['message'] = Text::_('COM_CGRESA_CLOSED_DATE')." : ".$value;
+					return false;
+				}
 			}
 		}
 		return true;

@@ -2,6 +2,18 @@
 	<changelog>
 		<element>com_cgresa</element>
 		<type>component</type>
+		<version>2.3.5</version>
+        <note>
+            <item>Update : 08/11/2023</item>
+        </note>
+        <fix>
+            <item>Suppress PHP warnings</item>
+            <item>Missing phone/size check in form validator</item>
+        </fix>
+	</changelog>
+	<changelog>
+		<element>com_cgresa</element>
+		<type>component</type>
 		<version>2.3.4</version>
         <note>
             <item>Update : 06/11/2023</item>

@@ -1,7 +1,7 @@
 /**
  * @component     CG Resa
- * Version			: 2.3.1
- * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ * Version			: 2.3.5
+ * @license https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
@@ -17,6 +17,17 @@ jQuery(document).ready(function($) {
 	jQuery('#cg_resa_privacy_text').click(function(){
 		jQuery('#cg_resa_privacy_text').removeClass("cg_show");	
 	});
+    document.formvalidator.setHandler('size',
+        function (value) {
+            regex=/^[1-9]+$/;
+            return regex.test(value);
+        });
+    document.formvalidator.setHandler('aphone',
+        function (value) {
+            regex=/^[0]{1}[1-8]{1}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}$/;
+            return regex.test(value);
+        });		
+	
 });
 
 /* CSP : externalisation du code javscript */
