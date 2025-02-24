@@ -1,9 +1,8 @@
 <?php
 /**
- * @component     CG Résa - Joomla 4.0.0
- * Version			: 2.2.3
+ * @component     CG Résa - Joomla 4.x/5.x
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2022 ConseilGouz. All Rights Reserved.
+ * @copyright (c) 2025 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
 // No direct access to this file
@@ -16,7 +15,7 @@ use Joomla\CMS\MVC\Model\FormModel;
 
 class ResaModel extends FormModel {
 
-	public function __construct($config = array(), MVCFactoryInterface $factory = null)
+	public function __construct($config = array(), ? MVCFactoryInterface $factory = null)
 	{
 		if (empty($config['filter_fields'])) {
 			$config['filter_fields'] = array(

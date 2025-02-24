@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="4.0" method="upgrade">
 	<name>COM_CGRESA</name>
-	<creationDate>2023/11/08</creationDate>
+	<creationDate>24/02/2025</creationDate>
 	<author>ConseilGouz</author>
 	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
 	<authorUrl>www.conseilgouz.com</authorUrl>
-	<copyright>Copyright (C) 2023 ConseilGouz.com. All Rights Reserved</copyright>
+	<copyright>Copyright (C) 2025 ConseilGouz.com. All Rights Reserved</copyright>
 	<license>GNU/GPL Version 3 or later - https://www.gnu.org/licenses/gpl-3.0.html</license>
-	<version>2.3.5</version>
+	<version>2.3.6</version>
 	<description>COM_CGRESA_XML_DESCRIPTION</description>
 	<namespace path="src">ConseilGouz\Component\CGResa</namespace>
 	<scriptfile>script.php</scriptfile>

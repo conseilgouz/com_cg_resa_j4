@@ -2,6 +2,18 @@
 	<changelog>
 		<element>com_cgresa</element>
 		<type>component</type>
+		<version>2.3.6</version>
+        <note>
+            <item>Update : 24/02/2025</item>
+        </note>
+        <fix>
+            <item>PHP 8.4 compatibility</item>
+            <item>Install script  : missing delete function</item>
+        </fix>
+	</changelog>
+	<changelog>
+		<element>com_cgresa</element>
+		<type>component</type>
 		<version>2.3.5</version>
         <note>
             <item>Update : 08/11/2023</item>
