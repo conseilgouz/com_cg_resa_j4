@@ -9,14 +9,15 @@
 defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
-use Joomla\Filesystem\Folder;
 use Joomla\CMS\Version;
+use Joomla\Database\DatabaseInterface;
 use Joomla\Filesystem\File;
+use Joomla\Filesystem\Folder;
 
 class com_cgresaInstallerScript
 {
 	private $min_joomla_version      = '4.0';
-	private $min_php_version         = '7.2';
+	private $min_php_version         = '7.4';
 	private $name                    = 'CG Resa';
 	private $exttype                 = 'component';
 	private $extname                 = 'cgresa';
@@ -72,7 +73,7 @@ class com_cgresaInstallerScript
     {
 	// check previous version com_cg_resa to com_cgresa
 	// 1. check if old version exists
-		$db = Factory::getDbo();
+		$db	= Factory::getContainer()->get(DatabaseInterface::class);
 		$query = $db->createQuery()
 			->select('*')
 			->from('#__extensions')
@@ -238,7 +239,7 @@ class com_cgresaInstallerScript
 			JPATH_PLUGINS . '/system/' . $this->installerName . '/language',
 			JPATH_PLUGINS . '/system/' . $this->installerName,
 		]);
-		$db = Factory::getDbo();
+		$db	= Factory::getContainer()->get(DatabaseInterface::class);
 		$query = $db->createQuery()
 			->delete('#__extensions')
 			->where($db->quoteName('element') . ' = ' . $db->quote($this->installerName))
