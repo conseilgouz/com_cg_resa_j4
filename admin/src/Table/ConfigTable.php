@@ -14,6 +14,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Versioning\VersionableTableInterface;
 use Joomla\Database\DatabaseDriver;
+use Joomla\Database\DatabaseInterface;
     
 class ConfigTable extends Table implements VersionableTableInterface
 {
@@ -53,13 +54,13 @@ class ConfigTable extends Table implements VersionableTableInterface
      */
     public function store($key = 'config')
     {
-        $db    = Factory::getDBo();
+		$db	= Factory::getContainer()->get(DatabaseInterface::class);
         $table = $this->_tbl;
         $key   = empty($this->name) ? $key : $this->name;
 
         // Check if key exists
         $result = $db->setQuery(
-            $db->getQuery(true)
+            $db->createQuery()
                 ->select('COUNT(*)')
                 ->from($db->quoteName($this->_tbl))
                 ->where($db->quoteName('name') . ' = ' . $db->quote($key))
@@ -98,13 +99,13 @@ class ConfigTable extends Table implements VersionableTableInterface
 	 */
 	public function getResaParams() {
 	    
-	    $db    = Factory::getDBo();
+		$db	= Factory::getContainer()->get(DatabaseInterface::class);
 	    $table = $this->_tbl;
 	    $key   = 'config';
 	    
 	    // Check if key exists
 	    $result = $db->setQuery(
-	        $db->getQuery(true)
+	        $db->createQuery()
 	        ->select('*')
 	        ->from($db->quoteName($this->_tbl))
 	        ->where($db->quoteName('name') . ' = ' . $db->quote($key))

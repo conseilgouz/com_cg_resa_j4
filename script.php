@@ -73,14 +73,14 @@ class com_cgresaInstallerScript
 	// check previous version com_cg_resa to com_cgresa
 	// 1. check if old version exists
 		$db = Factory::getDbo();
-		$query = $db->getQuery(true)
+		$query = $db->createQuery()
 			->select('*')
 			->from('#__extensions')
 			->where($db->quoteName('element') . ' = "com_cg_resa"')
 			->where($db->quoteName('type') . ' = ' . $db->quote('component'));
 		$db->setQuery($query);
 		$old = $db->loadObjectList();
-		$query = $db->getQuery(true)
+		$query = $db->createQuery()
 			->select('extension_id,params')
 			->from('#__extensions')
 			->where($db->quoteName('element') . ' = "com_cgresa"')
@@ -89,7 +89,7 @@ class com_cgresaInstallerScript
 		$new = $db->loadObject();
 	// 2. check if cgresa contains info.
 		try {
-		  $query = $db->getQuery(true)
+		  $query = $db->createQuery()
 		  ->select('*')
 		  ->from('#__cgresa_config');
 		  $db->setQuery($query);
@@ -100,7 +100,7 @@ class com_cgresaInstallerScript
 		if (count($old) && !count($resa)) { // no info in #_cgresa
 		    try{
     // 3. insert old parameters into new table
-		        $query = $db->getQuery(true)
+		        $query = $db->createQuery()
 		        ->select('*')
 		        ->from('#__cg_resa_config');
 		        $db->setQuery($query);
@@ -112,41 +112,41 @@ class com_cgresaInstallerScript
                 $query = $db->setQuery('DROP TABLE #__cg_resa_config' );
                 $db->execute();
     // 5. delete old version from extensions list, assets
-                $query = $db->getQuery(true)
+                $query = $db->createQuery()
                 ->delete('#__schemas')
                 ->where($db->quoteName('extension_id') . ' = '.$old[0]->extension_id);
                 $db->setQuery($query);
                 $result = $db->execute();
-                $query = $db->getQuery(true)
+                $query = $db->createQuery()
                 ->delete('#__update_sites_extensions')
                 ->where($db->quoteName('extension_id') . ' = '.$old[0]->extension_id);
                 $db->setQuery($query);
                 $result = $db->execute();
-                $query = $db->getQuery(true)
+                $query = $db->createQuery()
 		        ->delete('#__extensions')
 		        ->where($db->quoteName('element') . ' = "com_cg_resa"')
 		        ->where($db->quoteName('type') . ' = ' . $db->quote('component'));
 		        $db->setQuery($query);
 		        $result = $db->execute();
-		        $query = $db->getQuery(true)
+		        $query = $db->createQuery()
 		        ->delete('#__assets')
 		        ->where($db->quoteName('name') . ' = "com_cg_resa"');
 		        $db->setQuery($query);
 		        $result = $db->execute();
-		        $query = $db->getQuery(true)
+		        $query = $db->createQuery()
 		        ->delete('#__session')
 		        ->where($db->quoteName('data') . ' like "%com_cg_resa%"');
 		        $db->setQuery($query);
 		        $result = $db->execute();
     // 6. delete system menus 
-		        $query = $db->getQuery(true)
+		        $query = $db->createQuery()
 		        ->delete('#__menu')
 		        ->where($db->quoteName('link') . ' like "%com_cg_resa%"')
 		        ->where($db->quoteName('menutype') . ' = ' . $db->quote('main'));
 		        $db->setQuery($query);
 		        $result = $db->execute();
     // 7. update old menus to new menus		
-		        $query = $db->getQuery(true)
+		        $query = $db->createQuery()
 		        ->update('#__menu')
 		        ->set('link = REPLACE(link,"com_cg_resa&view=form","com_cgresa&view=resa")')
 				->set('link = REPLACE(link,"com_cg_resa&view=form","com_cgresa&view=resa"),component_id='.$new->id)
@@ -239,7 +239,7 @@ class com_cgresaInstallerScript
 			JPATH_PLUGINS . '/system/' . $this->installerName,
 		]);
 		$db = Factory::getDbo();
-		$query = $db->getQuery(true)
+		$query = $db->createQuery()
 			->delete('#__extensions')
 			->where($db->quoteName('element') . ' = ' . $db->quote($this->installerName))
 			->where($db->quoteName('folder') . ' = ' . $db->quote('system'))
