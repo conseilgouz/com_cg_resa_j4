@@ -1,9 +1,8 @@
 <?php
 /**
- * @component     CG Résa - Version Joomla 4.0.0
- * Version			: 2.2.3
- * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2022 ConseilGouz. All Rights Reserved.
+ * @component     CG Résa - Version Joomla 4.x/5.x
+ * @license https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+ * @copyright (c) 2025 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
 namespace ConseilGouz\Component\CGResa\Administrator\Model;
@@ -14,6 +13,7 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\Model\AdminModel;
 use Joomla\CMS\Table\Table;
 use Joomla\CMS\Form\Form;
+use Joomla\Database\DatabaseInterface;
 /**
  * Config Model Class
  */
@@ -70,7 +70,7 @@ class ConfigModel extends AdminModel {
      */
     protected function loadFormData()
     {
-        $db = Factory::getDBo();
+        $db	= Factory::getContainer()->get(DatabaseInterface::class);
 		$table = Table::getInstance('ConfigTable','ConseilGouz\\Component\\CGResa\Administrator\\Table\\', array('dbo' => $db));
 		$params = $table->getResaParams();
 		$resaparams = new \stdClass;
@@ -106,7 +106,7 @@ class ConfigModel extends AdminModel {
 	 */
     public function getTable($type = 'ConfigTable', $prefix = '', $config = array()) 
     {
-        $db = Factory::getDBo();
+        $db	= Factory::getContainer()->get(DatabaseInterface::class);
         return Table::getInstance('ConfigTable','ConseilGouz\\Component\\CGResa\Administrator\\Table\\', array('dbo' => $db));
         
     }

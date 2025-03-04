@@ -1,21 +1,21 @@
 <?php
 /**
  * @component     CG Résa
- * Version			: 2.3.4
  * @license https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
- * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
+ * @copyright (c) 2025 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
 namespace ConseilGouz\Component\CGResa\Site\Controller;
 \defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
-use Joomla\CMS\MVC\Controller\BaseController;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\MVC\Controller\BaseController;
+use Joomla\CMS\Plugin\PluginHelper;
+use Joomla\CMS\Router\Route;
 use Joomla\CMS\Session\Session;
 use Joomla\CMS\Table\Table;
 use Joomla\CMS\Uri\Uri;
-use Joomla\CMS\Router\Route;
-use Joomla\CMS\Plugin\PluginHelper;
+use Joomla\Database\DatabaseInterface;
 
 class ResaController extends BaseController {
 
@@ -152,7 +152,7 @@ class ResaController extends BaseController {
     	if (self::$params) {
             return self::$params;
 		}
-	    $db = Factory::getDBo();
+	    $db	= Factory::getContainer()->get(DatabaseInterface::class);
 		$table = Table::getInstance('ConfigTable','ConseilGouz\\Component\\CGResa\Administrator\\Table\\', array('dbo' => $db));
 		$lesparams = json_decode($table->getResaParams()->params,true);
 		$lesparams = self::clean($lesparams,$table);
