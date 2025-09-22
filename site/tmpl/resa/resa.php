@@ -26,10 +26,10 @@ $document = Factory::getApplication()->getDocument();
 $wa = $document->getWebAssetManager();
 $path = "media/com_cgresa/";
 
-$wa->registerAndUseStyle('cgresa',$path. "css/cg_resa.css");
+$wa->registerAndUseStyle('resacss',$path. "css/cg_resa.css");
 $wa->registerAndUseStyle('up',$path. "css/up.css");
 if (isset($this->script))$wa->registerAndUseScript('script',$this->script);
-$wa->registerAndUseScript('resa',$path."/js/cgresa.js");
+$wa->registerAndUseScript('resajs',$path."js/cgresa.js");
 $wa->registerAndUseScript('jqueryui',$path."js/jquery.ui.core.min.js");
 $wa->registerAndUseScript('submit',$path."js/submitbutton.js", [], ['defer' => true], ['core']);
 $wa->registerAndUseScript('errormsg',$path."js/errormessages.js", [], ['defer' => true], ['core']);
