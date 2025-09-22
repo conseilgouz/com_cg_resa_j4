@@ -1,9 +1,8 @@
 <?php
 /**
- * @component     CG Résa for Joomla 4.x/5.x
- * Version			: 2.3.1
- * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
+ * @component     CG Résa for Joomla 4.x/5.x/6.x
+ * @license https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+ * @copyright (c) 2025 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
 // No direct access
@@ -17,18 +16,27 @@ use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
 
 HTMLHelper::_('behavior.formvalidator');
+HTMLHelper::_('jquery.framework');
 
-$compath = ''.URI::base(true).'/media/com_cgresa';
+$path = 'media/com_cgresa';
 $params = ResaController::getParams();
-$document = Factory::getDocument();
-$document->addScript($compath."/js/cgresa.js");
-$document->addStyleDeclaration($params['css']); 
+$document = Factory::getApplication()->getDocument();
 
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = $document->getWebAssetManager();
+$path = "media/com_cgresa/";
+
+$wa->registerAndUseStyle('cgresa',$path. "css/cg_resa.css");
+$wa->registerAndUseStyle('up',$path. "css/up.css");
+if (isset($this->script))$wa->registerAndUseScript('script',$this->script);
+$wa->registerAndUseScript('resa',$path."/js/cgresa.js");
+$wa->registerAndUseScript('jqueryui',$path."js/jquery.ui.core.min.js");
+$wa->registerAndUseScript('submit',$path."js/submitbutton.js", [], ['defer' => true], ['core']);
+$wa->registerAndUseScript('errormsg',$path."js/errormessages.js,, [], ['defer' => true], ['core']");
+
 $wa->useScript('keepalive')
-	->useScript('form.validate')
-;
+	->useScript('form.validate');
+
 //Trigger onFormPrepare event
 PluginHelper::importPlugin('cgresa');
 $resp = "";

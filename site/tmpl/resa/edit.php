@@ -1,11 +1,10 @@
 <?php
 /**
- * @component     CG Résa - Joomla 4.0.0
- * Version			: 2.0.8
- * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2022 ConseilGouz. All Rights Reserved.
+ * @component     CG Résa for Joomla 4.x/5.x/6.x
+ * @license https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+ * @copyright (c) 2025 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
- */
+**/
 
 // No direct access
 defined('_JEXEC') or die('Restricted access');
@@ -18,8 +17,11 @@ use ConseilGouz\Component\CGResa\Site\Controller\ResaController;
 
 HTMLHelper::_('behavior.formvalidator');
 $params = ResaController->getParams();
-$document = Factory::getDocument();
-$document->addStyleDeclaration($params['css'])); 
+$document = Factory::getApplication()->getDocument();
+/** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
+$wa = $document->getWebAssetManager();
+
+$wa->addInlineStyle($params['css'])); 
 
 ?>
 <div id="cg_resa_messages">

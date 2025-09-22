@@ -1,9 +1,8 @@
 <?php
 /**
- * @component     CG Résa for Joomla 4.x/5.x
- * Version			: 2.3.1
- * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
+ * @component     CG Résa for Joomla 4.x/5.x/6.x
+ * @license https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+ * @copyright (c) 2025 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
 defined('JPATH_BASE') or die;
@@ -16,11 +15,14 @@ use ConseilGouz\Component\CGResa\Site\Controller\ResaController;
 $params = ResaController::getParams();
 
 $app = Factory::getApplication(); // receive date/time as parameter
-$input = $app->input; 
-$com_id = $app->input->getInt('Itemid');
-$path = ''.URI::base(true). '/media/com_cgresa/';
+$input = $app->getInput(); 
+$com_id = $app->getInput()->getInt('Itemid');
 
-$document 		= Factory::getDocument();
+$document = Factory::getApplication()->getDocument();
+
+$path = "media/com_cgresa/";
+/** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
+$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
 
 $date  = $input->get('date');
 $time  = $input->getRaw('time');
@@ -28,7 +30,7 @@ $time  = $input->getRaw('time');
 if (!isset($params['date_format'])) $params['date_format'] = '%m-%d-%y';
 
 if (isset($params['date_format']) && $params['date_format']  == '%d-%m-%Y' ) { 
-	$document->addScript($path.'js/datepicker-fr.js');
+	$wa->registerAndUseScript('datepickerfr',$path.'js/datepicker-fr.js');
 }
 
 $libs = [];

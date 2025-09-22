@@ -1,6 +1,6 @@
 <?php
 /**
- * @component     CG Résa
+ * @component     CG Résa for Joomla 4.x/5.x/6.x
  * @license https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
  * @copyright (c) 2025 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
@@ -21,8 +21,8 @@ class ResaController extends BaseController {
 
     public function display($cachable = false, $urlparams = false) {
 
-		$view = Factory::getApplication()->input->getCmd('view', 'resa');
-        Factory::getApplication()->input->set('view', $view);
+		$view = Factory::getApplication()->getInput()->getCmd('view', 'resa');
+        Factory::getApplication()->getInput()->set('view', $view);
 
         parent::display($cachable, $urlparams);
 
@@ -42,7 +42,7 @@ class ResaController extends BaseController {
 	Session::checkToken() or jexit(Text::_('JINVALID_TOKEN'));
      
 	$app = Factory::getApplication(); 
-	$input = $app->input; 
+	$input = $app->getInput(); 
 	$model = $this->getModel('resa');
 	$currentUri = (string)Uri::getInstance();
     // get the data from the HTTP POST request

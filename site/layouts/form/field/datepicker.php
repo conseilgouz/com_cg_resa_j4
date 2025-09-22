@@ -1,9 +1,8 @@
  <?php
 /**
- * @component     CG Résa for Joomla 4.x/5.x
- * Version			: 2.3.0
- * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
+ * @component     CG Résa for Joomla 4.x/5.x/6.x
+ * @license https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+ * @copyright (c) 2025 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
 defined('JPATH_BASE') or die;
@@ -18,20 +17,22 @@ $params = ResaController::getParams();
 
 extract($displayData);
 HtmlHelper::_('jquery.framework');
-$document 		= Factory::getDocument() ;
+$document = Factory::getApplication()->getDocument() ;
 
 $app = Factory::getApplication(); // 1.0.11: receive date as parameter
-$input = $app->input; 
+$input = $app->getInput(); 
 $date  = $input->get('date');
 
-$path = ''.URI::base(true). '/media/com_cgresa/';
-$document->addStyleSheet($path.'css/jquery.ui.datepicker.min.css');
-$document->addScript($path.'js/jquery.ui.datepicker.min.js');
+$path = "media/com_cgresa/";
+/** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
+$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
+$wa->registerAndUseStyle('datepicker',$path.'css/jquery.ui.datepicker.min.css');
+$wa->registerAndUseScript('datepicker',$path.'js/jquery.ui.datepicker.min.js');
 
 if (!isset($params['date_format'])) $params['date_format'] = '%m-%d-%y';
 
 if (isset($params['date_format']) && $params['date_format']  == '%d-%m-%Y' ) { 
-	$document->addScript($path.'js/datepicker-fr.js');
+	$wa->registerAndUseScript('datepickerfr',$path.'js/datepicker-fr.js');
 }
 
 $libs = [];

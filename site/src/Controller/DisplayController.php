@@ -1,9 +1,8 @@
 <?php
 /**
- * @component     CG Résa - Joomla 4.0.0
- * Version			: 2.2.3
- * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2022 ConseilGouz. All Rights Reserved.
+ * @component     CG Résa for Joomla 4.x/5.x/6.x
+ * @license https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+ * @copyright (c) 2025 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
 namespace ConseilGouz\Component\CGResa\Site\Controller;
@@ -16,8 +15,8 @@ class DisplayController extends BaseController {
 
     public function display($cachable = false, $urlparams = false) {
 
-        $view = Factory::getApplication()->input->getCmd('view', 'resa');
-        Factory::getApplication()->input->set('view', $view);
+        $view = Factory::getApplication()->getInput()->getCmd('view', 'resa');
+        Factory::getApplication()->getInput()->set('view', $view);
 
         parent::display($cachable, $urlparams);
 

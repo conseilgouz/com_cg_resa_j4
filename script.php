@@ -1,6 +1,6 @@
 <?php
 /**
-* CG Resa Component  - Joomla 4.x/5.x Component 
+* CG Resa Component  - Joomla 4.x/5.x/6.x Component 
 * Package			: CG Resa
 * copyright 		: Copyright (C) 2025 ConseilGouz. All rights reserved.
 * license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
@@ -22,13 +22,14 @@ class com_cgresaInstallerScript
 	private $exttype                 = 'component';
 	private $extname                 = 'cgresa';
 	private $previous_version        = '';
+    private $newlib_version	         = '';
 	private $dir           = null;
 	private $lang = null;
 	private $installerName = 'cgresainstaller';
 	public function __construct()
 	{
 		$this->dir = __DIR__;
-		$this->lang = Factory::getLanguage();
+		$this->lang = Factory::getApplication()->getLanguage();
 		$this->lang->load($this->extname);
 	}
     function preflight($type, $parent)
@@ -57,31 +58,26 @@ class com_cgresaInstallerScript
 		
     }
     
-    function install($parent)
-    {
-    }
-    
-    function uninstall($parent)
-    {
-    }
-    
-    function update($parent)
-    {
-    }
-    
     function postflight($type, $parent)
     {
+        if (!$this->checkLibrary('conseilgouz')) { // need library installation
+            $ret = $this->installPackage('lib_conseilgouz');
+            if ($ret) {
+                Factory::getApplication()->enqueueMessage('ConseilGouz Library ' . $this->newlib_version . ' installed', 'notice');
+            }
+        }
+        
 	// check previous version com_cg_resa to com_cgresa
 	// 1. check if old version exists
 		$db	= Factory::getContainer()->get(DatabaseInterface::class);
-		$query = $db->createQuery()
+		$query = $db->getQuery(true)
 			->select('*')
 			->from('#__extensions')
 			->where($db->quoteName('element') . ' = "com_cg_resa"')
 			->where($db->quoteName('type') . ' = ' . $db->quote('component'));
 		$db->setQuery($query);
 		$old = $db->loadObjectList();
-		$query = $db->createQuery()
+		$query = $db->getQuery(true)
 			->select('extension_id,params')
 			->from('#__extensions')
 			->where($db->quoteName('element') . ' = "com_cgresa"')
@@ -90,7 +86,7 @@ class com_cgresaInstallerScript
 		$new = $db->loadObject();
 	// 2. check if cgresa contains info.
 		try {
-		  $query = $db->createQuery()
+		  $query = $db->getQuery(true)
 		  ->select('*')
 		  ->from('#__cgresa_config');
 		  $db->setQuery($query);
@@ -101,7 +97,7 @@ class com_cgresaInstallerScript
 		if (count($old) && !count($resa)) { // no info in #_cgresa
 		    try{
     // 3. insert old parameters into new table
-		        $query = $db->createQuery()
+		        $query = $db->getQuery(true)
 		        ->select('*')
 		        ->from('#__cg_resa_config');
 		        $db->setQuery($query);
@@ -113,41 +109,41 @@ class com_cgresaInstallerScript
                 $query = $db->setQuery('DROP TABLE #__cg_resa_config' );
                 $db->execute();
     // 5. delete old version from extensions list, assets
-                $query = $db->createQuery()
+                $query = $db->getQuery(true)
                 ->delete('#__schemas')
                 ->where($db->quoteName('extension_id') . ' = '.$old[0]->extension_id);
                 $db->setQuery($query);
                 $result = $db->execute();
-                $query = $db->createQuery()
+                $query = $db->getQuery(true)
                 ->delete('#__update_sites_extensions')
                 ->where($db->quoteName('extension_id') . ' = '.$old[0]->extension_id);
                 $db->setQuery($query);
                 $result = $db->execute();
-                $query = $db->createQuery()
+                $query = $db->getQuery(true)
 		        ->delete('#__extensions')
 		        ->where($db->quoteName('element') . ' = "com_cg_resa"')
 		        ->where($db->quoteName('type') . ' = ' . $db->quote('component'));
 		        $db->setQuery($query);
 		        $result = $db->execute();
-		        $query = $db->createQuery()
+		        $query = $db->getQuery(true)
 		        ->delete('#__assets')
 		        ->where($db->quoteName('name') . ' = "com_cg_resa"');
 		        $db->setQuery($query);
 		        $result = $db->execute();
-		        $query = $db->createQuery()
+		        $query = $db->getQuery(true)
 		        ->delete('#__session')
 		        ->where($db->quoteName('data') . ' like "%com_cg_resa%"');
 		        $db->setQuery($query);
 		        $result = $db->execute();
     // 6. delete system menus 
-		        $query = $db->createQuery()
+		        $query = $db->getQuery(true)
 		        ->delete('#__menu')
 		        ->where($db->quoteName('link') . ' like "%com_cg_resa%"')
 		        ->where($db->quoteName('menutype') . ' = ' . $db->quote('main'));
 		        $db->setQuery($query);
 		        $result = $db->execute();
     // 7. update old menus to new menus		
-		        $query = $db->createQuery()
+		        $query = $db->getQuery(true)
 		        ->update('#__menu')
 		        ->set('link = REPLACE(link,"com_cg_resa&view=form","com_cgresa&view=resa")')
 				->set('link = REPLACE(link,"com_cg_resa&view=form","com_cgresa&view=resa"),component_id='.$new->id)
@@ -198,6 +194,42 @@ class com_cgresaInstallerScript
 			}
 		}
 	}
+    private function checkLibrary($library)
+    {
+        $file = $this->dir.'/lib_conseilgouz/conseilgouz.xml';
+        if (!is_file($file)) {// library not installed
+            return false;
+        }
+        $xml = simplexml_load_file($file);
+        $this->newlib_version = $xml->version;
+        $db = Factory::getContainer()->get(DatabaseInterface::class);
+        $conditions = array(
+             $db->qn('type') . ' = ' . $db->q('library'),
+             $db->qn('element') . ' = ' . $db->quote($library)
+            );
+        $query = $db->getQuery(true)
+                ->select('manifest_cache')
+                ->from($db->quoteName('#__extensions'))
+                ->where($conditions);
+        $db->setQuery($query);
+        $manif = $db->loadObject();
+        if ($manif) {
+            $manifest = json_decode($manif->manifest_cache);
+            if ($manifest->version >= $this->newlib_version) { // compare versions
+                return true; // library ok
+            }
+        }
+        return false; // need library
+    }
+    private function installPackage($package)
+    {
+        $tmpInstaller = new Joomla\CMS\Installer\Installer();
+        $db = Factory::getContainer()->get(DatabaseInterface::class);
+        $tmpInstaller->setDatabase($db);
+        $installed = $tmpInstaller->install($this->dir . '/' . $package);
+        return $installed;
+    }
+    
 	// Check if Joomla version passes minimum requirement
 	private function passMinimumJoomlaVersion()
 	{
@@ -240,7 +272,7 @@ class com_cgresaInstallerScript
 			JPATH_PLUGINS . '/system/' . $this->installerName,
 		]);
 		$db	= Factory::getContainer()->get(DatabaseInterface::class);
-		$query = $db->createQuery()
+		$query = $db->getQuery(true)
 			->delete('#__extensions')
 			->where($db->quoteName('element') . ' = ' . $db->quote($this->installerName))
 			->where($db->quoteName('folder') . ' = ' . $db->quote('system'))

@@ -4,7 +4,7 @@
 		<inlinehelp button="show"/>     
 	</config>
     <fieldset name="basic" label="CGRESA_GLOBAL_DATA" description="GSD_GLOBAL_DATA_DESC"
-		addfieldprefix="ConseilGouz\Component\CGResa\Administrator\Field">
+		addfieldprefix="ConseilGouz\Library\Field">
 		<field name="version" type="version"  margintop="-3em" extension="com_cgresa"/>
 		<field name="id" type="hidden" default="0"
 			readonly="true" class="readonly"
@@ -57,7 +57,7 @@
 		<field name="mailfrom" type="text" label="COM_CGRESA_FROM" description="COM_CGRESA_FROM_DESC" required="true"/>
 		<field name="mailfromlib" type="text" label="COM_CGRESA_FROM_LIB" description="COM_CGRESA_FROM_LIB_DESC" required="true" />
 	    <field name="maildest" type="text" label="COM_CGRESA_DEST" description="COM_CGRESA_DEST_DESC" required="true" />
-		<field name="mailreplyto" type="text" label="COM_CGRESA_REPLYTO" description="COM_CGRESA_REPLYTO_DESC" default=""/>
+		<field name="mailreplyto" type="text" label="COM_CGRESA_REPLYTO" description="COM_CGRESA_REPLYTO_DESC" default="" required="true"/>
 	    <field name="mailcc" type="text" label="COM_CGRESA_CC" description="COM_CGRESA_CC_DESC" default=""/>
 	    <field name="mailbcc" type="text" label="COM_CGRESA_BCC" description="COM_CGRESA_BCC_DESC" default=""/>
 	    <field name="mailsubject" type="text" label="COM_CGRESA_SUBJECT" description="COM_CGRESA_SUBJECT_DESC" default="Demande de reservation" />

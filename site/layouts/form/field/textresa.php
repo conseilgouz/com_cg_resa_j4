@@ -1,11 +1,9 @@
 <?php
 /**
- * @component     CG Résa
- * Version			: 1.2.0
- * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2022 ConseilGouz. All Rights Reserved.
+ * @component     CG Résa for Joomla 4.x/5.x/6.x
+ * @license https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+ * @copyright (c) 2025 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
- * Updated on       : January, 2020
 **/
 defined('JPATH_BASE') or die;
 use Joomla\CMS\Factory;
@@ -39,7 +37,7 @@ $attributes = array(
 );
 
 $app = Factory::getApplication(); 
-$input = $app->input; 
+$input = $app->getInput(); 
 $value  = $input->getString('msg');
 
 

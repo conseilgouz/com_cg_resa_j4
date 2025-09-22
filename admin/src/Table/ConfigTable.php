@@ -60,7 +60,7 @@ class ConfigTable extends Table implements VersionableTableInterface
 
         // Check if key exists
         $result = $db->setQuery(
-            $db->createQuery()
+            $db->getQuery(true)
                 ->select('COUNT(*)')
                 ->from($db->quoteName($this->_tbl))
                 ->where($db->quoteName('name') . ' = ' . $db->quote($key))
@@ -105,7 +105,7 @@ class ConfigTable extends Table implements VersionableTableInterface
 	    
 	    // Check if key exists
 	    $result = $db->setQuery(
-	        $db->createQuery()
+	        $db->getQuery(true)
 	        ->select('*')
 	        ->from($db->quoteName($this->_tbl))
 	        ->where($db->quoteName('name') . ' = ' . $db->quote($key))

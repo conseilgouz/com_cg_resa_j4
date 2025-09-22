@@ -1,9 +1,8 @@
 <?php
 /**
- * @component     CG Résa
- * Version			: 2.2.3
- * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2022 ConseilGouz. All Rights Reserved.
+ * @component     CG Résa for Joomla 4.x/5.x/6.x
+ * @license https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+ * @copyright (c) 2025 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
 **/
 
@@ -28,7 +27,7 @@ class ConfigController extends FormController
         // Initialise variables.
         $app = Factory::getApplication();
         $model= $this->getModel('config'); 
-        $data = $app->input->getRaw('jform', array(), 'post', 'array');
+        $data = $app->getInput()->getRaw('jform', array(), 'post', 'array');
         $task = $this->getTask();
         $form = $model->getForm();
         $data['name'] = 'config';

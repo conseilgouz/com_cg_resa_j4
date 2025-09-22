@@ -12,10 +12,8 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 
 defined('_JEXEC') or die('Restricted access');
-HTMLHelper::_('bootstrap.popover');
 //HTMLHelper::_('behavior.modal');
 // HTMLHelper::_('behavior.tabstate');
-HTMLHelper::_('formbehavior.chosen', 'select');
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = $this->document->getWebAssetManager();
 $wa->useScript('keepalive')

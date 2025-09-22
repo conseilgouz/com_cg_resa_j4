@@ -2,6 +2,20 @@
 	<changelog>
 		<element>com_cgresa</element>
 		<type>component</type>
+		<version>2.4.1</version>
+        <note>
+            <item>Update :22/09/2025</item>
+        </note>
+        <fix>
+            <item>Joomla 6 compatibility</item>
+        </fix>
+        <change>
+            <item>Use ConseilGouz library</item>
+        </change>
+	</changelog>
+	<changelog>
+		<element>com_cgresa</element>
+		<type>component</type>
 		<version>2.4.0</version>
         <note>
             <item>Update : 04/03/2025</item>
