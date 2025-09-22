@@ -27,7 +27,7 @@ class TextresaRule extends FormRule
 	 *
 	 *  @return  boolean                                 True if the value is valid, false otherwise.
 	 */
-	public function test(\SimpleXMLElement $element, $value, $group = null, Registry $input = null, Form $form = null)
+	public function test(\SimpleXMLElement $element, $value, $group = null, ?Registry $input = null, ?Form $form = null)
 	{
         $text = $input->get('msg'); // get message
 

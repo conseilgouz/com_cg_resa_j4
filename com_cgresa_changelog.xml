@@ -2,6 +2,17 @@
 	<changelog>
 		<element>com_cgresa</element>
 		<type>component</type>
+		<version>2.4.4</version>
+        <note>
+            <item>Update :22/09/2025</item>
+        </note>
+        <fix>
+            <item>PHP 8.4 : rules : add ? to nullable parameters</item>
+        </fix>
+	</changelog>
+	<changelog>
+		<element>com_cgresa</element>
+		<type>component</type>
 		<version>2.4.3</version>
         <note>
             <item>Update :22/09/2025</item>
