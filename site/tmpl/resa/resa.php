@@ -32,7 +32,7 @@ if (isset($this->script))$wa->registerAndUseScript('script',$this->script);
 $wa->registerAndUseScript('resa',$path."/js/cgresa.js");
 $wa->registerAndUseScript('jqueryui',$path."js/jquery.ui.core.min.js");
 $wa->registerAndUseScript('submit',$path."js/submitbutton.js", [], ['defer' => true], ['core']);
-$wa->registerAndUseScript('errormsg',$path."js/errormessages.js,, [], ['defer' => true], ['core']");
+$wa->registerAndUseScript('errormsg',$path."js/errormessages.js", [], ['defer' => true], ['core']);
 
 $wa->useScript('keepalive')
 	->useScript('form.validate');
